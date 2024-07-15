@@ -1,3 +1,47 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    function clean_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    $feedback = clean_input($_POST['feedback']);
+
+    $errors = [];
+    
+    if (empty($feedback)) {
+        $errors[] = "Feedback is required";
+    }
+
+    if (empty($errors)) {
+        $feedback_data = [
+            'feedback' => $feedback,
+            'timestamp' => date('Y-m-d H:i:s') 
+        ];
+
+        $file_path = "data/feedback.json";
+
+        $json_data = file_get_contents($file_path);
+        $feedbacks = json_decode($json_data, true);
+
+        if ($feedbacks === null) {
+            $feedbacks = [];
+        }
+
+        $feedbacks[] = $feedback_data;
+
+        $json_data = json_encode($feedbacks, JSON_PRETTY_PRINT);
+        if (file_put_contents($file_path, $json_data)) {
+        
+             header("Location: feedback-success.php");
+        } else {
+            $errors[] = "Failed to submit feedback. Please try again later.";
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -11,5 +11,15 @@
         "name": "abed ali",
         "email": "abed@test.com",
         "password": "$2y$10$5p4WpKZXd6DCc73yVMf2m.NWhHExz09r169zKA19PSxi1fWE1CMki"
+    },
+    {
+        "name": "mahir",
+        "email": "mahir@test.com",
+        "password": "$2y$10$XozD7YDd5OwUSh1Cex4cv.IoCulSHAzPeGFYYHJwPKXW47nlp5bVG"
+    },
+    {
+        "name": "mahir",
+        "email": "test@mahir.com",
+        "password": "$2y$10$InDgsaQtGRiBhBDSj9pHauXwzj\/Y1y4RRZCePPnDlO3oxr8GBnZni"
     }
 ]

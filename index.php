@@ -1,3 +1,16 @@
+
+<?php
+
+function generateFeedbackLink() {
+    $uniqueId = uniqid();
+    return "http://localhost:8000/feedback.php?uid=" . $uniqueId;
+}
+
+$link = generateFeedbackLink();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +83,13 @@
                         </div>
                     </div>
                     <div class="pt-8 text-base font-semibold leading-7">
-                        <p class="text-gray-900">Sounds interesting?</p>
+                        <p class="text-gray-900">Give feedback Anonymously ?</p>
+                        <p>
+                            <a href="<?= $link ?>" class="text-sky-500 hover:text-sky-600">click Here!</a>
+                        </p>
+                    </div>
+                    <div class="pt-8 text-base font-semibold leading-7">
+                        <p class="text-gray-900">Admin Panel</p>
                         <p>
                             <a href="./login.php" class="text-sky-500 hover:text-sky-600">Let's start!</a>
                         </p>
